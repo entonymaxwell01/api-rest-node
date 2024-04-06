@@ -16,6 +16,24 @@ const serviceController = {
         }catch(err){
             console.log(err);
         }
+    },
+    getAll: async(req,res) => {
+        try {
+            const services = await ServiceModel.find();
+            res.status(200).json({services});
+        }catch(err){
+            console.log(err);
+        }
+    },
+    getOne: async(req,res) => {
+        try{
+            const id = req.params.id;
+            const service = await ServiceModel.findById(id);
+            res.status(200).json({service});
+        }
+        catch(err){
+            console.log(err);
+        }
     }
 }
 
