@@ -29,6 +29,12 @@ const serviceController = {
         try{
             const id = req.params.id;
             const service = await ServiceModel.findById(id);
+            
+            if(!service){
+                res.status(404).json({msg: "Serviço não encontrado"});
+                return;
+            }
+
             res.status(200).json({service});
         }
         catch(err){
