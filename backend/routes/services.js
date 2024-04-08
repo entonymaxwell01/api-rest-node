@@ -14,4 +14,8 @@ router.route("/services/:id").get((req,res) =>{
     serviceController.getOne(req,res);
 });
 
+router.route("/services/:id").delete((req,res) =>{
+    serviceController.deleteService(req,res);
+});
+
 module.exports = router;
