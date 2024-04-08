@@ -18,4 +18,8 @@ router.route("/services/:id").delete((req,res) =>{
     serviceController.deleteService(req,res);
 });
 
+router.route("/services/:id").put((req,res) =>{
+    serviceController.updateService(req,res);
+});
+
 module.exports = router;

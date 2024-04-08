@@ -1,4 +1,4 @@
-const {Service: ServiceModel} = require("../models/Service.js");
+const {Service: ServiceModel, Service} = require("../models/Service.js");
 
 const serviceController = {
     create: async(req,res) => {
@@ -57,6 +57,29 @@ const serviceController = {
             console.log(err);
         }
 
+    },
+    updateService: async(req,res) => {
+        try{
+            const id = req.params.id;
+
+            const service = {
+                name: req.body.name,
+                describe: req.body.describe,
+                price: req.body.price,
+                image: req.body.image,
+            };
+
+            const updateService = await ServiceModel.findByIdAndUpdate(id,service);
+
+            if(!updateService){
+                res.status(404).json({msg: "Serviço não encontrado"});
+                return;
+            }
+
+            res.status(200).json({service,msg:"Serviço atualizado"});
+        }catch(err){
+            console.log(err);
+        }
     }
 }
 
