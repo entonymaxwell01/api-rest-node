@@ -42,6 +42,7 @@ npm start
 
 ### Listar serviços
 
+---
 1 - Usando o metodo GET
 2 - Use a rota:
 
@@ -49,10 +50,9 @@ npm start
 http://localhost:3000/api/services/
 ```
 
----
-
 ### Listar um unico serviço
 
+---
 1 - Usando o metodo GET
 1- Use a rota:
 
@@ -62,10 +62,9 @@ http://localhost:3000/api/services/:id
 
 3 - Substitua `:id` pelo id do serviço que deseja listar
 
----
-
 ### Cadastrar serviços
 
+---
 1 - Usando o metodo POST
 2 - Use a rota:
 
@@ -84,10 +83,9 @@ http://localhost:3000/api/services/
 }
 ```
 
----
-
 ### Atualizar um serviço
 
+---
 1 - Usando o metodo PUT
 2 - Use a rota:
 
@@ -107,10 +105,9 @@ http://localhost:3000/api/services/:id
 }
 ```
 
----
-
 ### Deletar serviço
 
+---
 1 - Usando o metodo DELETE
 2 - Use a rota:
 
