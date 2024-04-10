@@ -61,6 +61,7 @@ http://localhost:3000/api/services/:id
 ```
 
 3 - Substitua `:id` pelo id do serviço que deseja listar
+
 ---
 
 ### Cadastrar serviços
