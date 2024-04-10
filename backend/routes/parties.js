@@ -15,11 +15,11 @@ router.route("/parties/:id").get((req,res) =>{
 });
 
 router.route("/parties/:id").delete((req,res) =>{
-    partyController.deleteService(req,res);
+    partyController.deleteParty(req,res);
 });
 
 router.route("/parties/:id").put((req,res) =>{
-    partyController.updateService(req,res);
+    partyController.updateParty(req,res);
 });
 
 module.exports = router;

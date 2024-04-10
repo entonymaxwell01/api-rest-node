@@ -56,6 +56,47 @@ const partyController = {
             console.log(err);
         }
     },
+    deleteParty: async (req,res) => {
+        try {
+            const id = req.params.id;
+            const party = await PartyModel.findById(id);
+        
+            if(!party){
+                res.status(404).json({msg: "Party not found"});
+                return;
+            }
+
+            const deletedParty = await PartyModel.findByIdAndDelete(id);
+            res.status(200).json({deletedParty, msg: "Party deleted successfully"});
+
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    updateParty: async (req,res) => {
+        try {
+            const id = req.params.id;
+            const party = {
+                title: req.body.title,
+                author : req.body.author,
+                describe: req.body.describe,
+                budget: req.body.budget,
+                image: req.body.image,
+                services: req.body.services,
+            }
+
+            if(!party){
+                res.status(404).json({msg: "Party not found"});
+                return;
+            }
+
+            const updateParty = await PartyModel.findByIdAndUpdate(id,party);
+            res.status(200).json({updateParty,msg: "Party updated successfully"});
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
 }
 
 
