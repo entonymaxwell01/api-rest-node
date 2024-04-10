@@ -12,7 +12,7 @@ const serviceController = {
 
             const response = await ServiceModel.create(service);
 
-            res.status(201).json({response, msg: "Serviço criado"});
+            res.status(201).json({response, msg: "Service created successfully"});
         }catch(err){
             console.log(err);
         }
@@ -31,7 +31,7 @@ const serviceController = {
             const service = await ServiceModel.findById(id);
             
             if(!service){
-                res.status(404).json({msg: "Serviço não encontrado"});
+                res.status(404).json({msg: "Service not found"});
                 return;
             }
 
@@ -47,7 +47,7 @@ const serviceController = {
             const service = await ServiceModel.findById(id);
             
             if(!service){
-                res.status(404).json({msg: "Serviço não encontrado"});
+                res.status(404).json({msg: "Service not found"});
                 return;
             }
 

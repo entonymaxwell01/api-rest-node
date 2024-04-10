@@ -33,7 +33,29 @@ const partyController = {
         }catch(err){
             console.log(err);
         }
-    }
+    },
+    getAll: async (req,res) => {
+        try {
+            const parties = await PartyModel.find();
+            res.status(200).json({parties});
+        } catch (err) {
+            console.log(err);
+        }
+    },
+    getOne: async (req,res) => {
+        try {
+            const id = req.params.id;
+            const party = await PartyModel.findById(id);
+
+            if(!party){
+                res.status(404).json({msg: "Party not found"});
+                return;
+            }
+            res.status(200).json({party});
+        } catch (err) {
+            console.log(err);
+        }
+    },
 }
 
 
