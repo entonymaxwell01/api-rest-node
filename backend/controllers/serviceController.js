@@ -52,7 +52,7 @@ const serviceController = {
             }
 
             const deletedService = await ServiceModel.findByIdAndDelete(id);
-            res.status(200).json({deletedService, msg: "Serviço deletado com sucesso"});
+            res.status(200).json({deletedService, msg: "Service deleted successfully"});
         }catch(err){
             console.log(err);
         }
@@ -72,11 +72,11 @@ const serviceController = {
             const updateService = await ServiceModel.findByIdAndUpdate(id,service);
 
             if(!updateService){
-                res.status(404).json({msg: "Serviço não encontrado"});
+                res.status(404).json({msg: "Service not found"});
                 return;
             }
 
-            res.status(200).json({service,msg:"Serviço atualizado"});
+            res.status(200).json({service,msg:"Service updated successfully"});
         }catch(err){
             console.log(err);
         }
