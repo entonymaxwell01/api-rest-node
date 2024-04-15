@@ -27,6 +27,11 @@ const partyController = {
                 res.status(406).json({message: "Budget is not enough"});
                 return
             }
+
+            if(!party.title || !party.author || !party.describe || !party.budget || !party.image || !party.services){
+                res.status(406).json({msg: "Missing required fields"});
+                return
+            }
             const response =  await PartyModel.create(party);
 
             res.status(201).json({response,msg: "Party created successfully"});
@@ -91,6 +96,13 @@ const partyController = {
                 res.status(404).json({msg: "Party not found"});
                 return;
             }
+
+            if(!party.title || !party.author || !party.describe || !party.budget || !party.image || !party.services){
+                res.status(406).json({msg: "Missing required fields"});
+                return
+            }
+            
+            if(party)
 
             res.status(200).json({updateParty,msg: "Party updated successfully"});
 

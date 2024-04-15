@@ -10,6 +10,11 @@ const serviceController = {
                 image: req.body.image,
             }
 
+            if(!service.name || !service.describe || !service.price || !service.image){
+                res.status(406).json({msg: "Missing required fields"});
+                return;
+            }
+
             const response = await ServiceModel.create(service);
 
             res.status(201).json({response, msg: "Service created successfully"});
@@ -73,6 +78,11 @@ const serviceController = {
 
             if(!updateService){
                 res.status(404).json({msg: "Service not found"});
+                return;
+            }
+
+            if(!service.name || !service.describe || !service.price || !service.image){
+                res.status(406).json({msg: "Missing required fields"});
                 return;
             }
 
