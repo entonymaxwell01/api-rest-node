@@ -85,12 +85,13 @@ const partyController = {
                 services: req.body.services,
             }
 
-            if(!party){
+            const updateParty = await PartyModel.findByIdAndUpdate(id,party);
+
+            if(!updateParty){
                 res.status(404).json({msg: "Party not found"});
                 return;
             }
 
-            const updateParty = await PartyModel.findByIdAndUpdate(id,party);
             res.status(200).json({updateParty,msg: "Party updated successfully"});
 
         } catch (err) {
