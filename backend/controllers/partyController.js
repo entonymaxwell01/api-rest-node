@@ -102,8 +102,6 @@ const partyController = {
                 return
             }
             
-            if(party)
-
             res.status(200).json({updateParty,msg: "Party updated successfully"});
 
         } catch (err) {
